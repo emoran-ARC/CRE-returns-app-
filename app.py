@@ -1,14 +1,14 @@
 import streamlit as st
 import numpy as np
+import numpy_financial as npf
 import pandas as pd
-
 # -----------------------
 # Helper functions
 # -----------------------
 
 def irr(cashflows):
     try:
-        return np.irr(cashflows)
+        return npf.irr(cashflows)
     except:
         return None
 
@@ -16,7 +16,7 @@ def amortization_schedule(loan_amount, rate, amort_years, term_years):
     """Returns interest, principal, and balance each year."""
     r = rate
     n = amort_years
-    payment = np.pmt(r, n, -loan_amount)
+payment = npf.pmt(r, n, -loan_amount)
 
     schedule = []
     balance = loan_amount
